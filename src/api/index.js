@@ -18,11 +18,6 @@ export default {
             data: qs.stringify(data),
         };
 
-        axios(options).then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        return axios(options);
     }
 }
