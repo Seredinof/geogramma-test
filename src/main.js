@@ -7,6 +7,7 @@ import 'vuetify/dist/vuetify.min.css'
 import Login from './components/Login'
 import Layout from './components/Layout'
 import Tasks from './components/Tasks'
+import Task from './components/Task'
 
 Vue.use(Vuetify);
 Vue.use(VueRouter);
@@ -20,6 +21,10 @@ const router = new VueRouter({
         {
           path: 'tasks',
           component: Tasks
+        },
+        {
+          path: '/task/:id',
+          component: Task
         }
       ]
     },
@@ -35,7 +40,7 @@ new Vue({
       if(localStorage.token) {
         this.$store.dispatch('getUser', localStorage.token)
       } else {
-        router.push('login');
+        router.push('/login');
       }
   },
   render: h => h(App)

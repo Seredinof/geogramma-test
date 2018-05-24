@@ -5,21 +5,25 @@
       fixed
       app
     >
+      <v-toolbar flat class="transparent" v-if="user.attributes">
+        <v-list class="pa-0">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img :src="`http://geogramma-test.byllmcsony.ru/${user.relationships.data.attributes.path}`" >
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{user.attributes.login}}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
       <v-list dense>
-        <v-list-tile >
+        <v-list-tile to="/tasks">
           <v-list-tile-action>
-            <v-icon>home</v-icon>
+            <v-icon>list</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile >
-          <v-list-tile-action>
-            <v-icon>contact_mail</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Contact</v-list-tile-title>
+            <v-list-tile-title>Список задач</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -41,9 +45,12 @@
 
 <script>
   export default {
-    data: () => ({
-      drawer: null
-    }),
+    data() {
+      return {
+        drawer: null,
+        user: this.$store.state.user
+      }
+    },
     props: {
       source: String
     }

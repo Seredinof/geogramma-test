@@ -38,5 +38,14 @@ export default {
         };
 
         return axios(options);
+    },
+    getTask: function(id) {
+        const options = {
+            url: `${apiRoot}task/${id}`,
+            method: 'GET',
+            headers: { 'auth_token': (localStorage.token) ? localStorage.token : '' }
+        };
+
+        return axios(options);
     }
 }
