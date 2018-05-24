@@ -12,7 +12,6 @@ export default {
     actions: {
         getTasks(context, payload) {
             api.getTasks().then( function( response ) {
-                //console.log(response.data.data);
                 context.commit('setTasks', response.data.data);
             } )
         }

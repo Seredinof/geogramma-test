@@ -7,6 +7,11 @@
               <v-list-tile-title>{{ item.attributes.tile }}</v-list-tile-title>
               <v-list-tile-sub-title>{{ item.attributes.subject }}</v-list-tile-sub-title>
             </v-list-tile-content>
+            <v-list-tile-action>
+              <v-btn small :color="item.relationships.state.data.relationships.attributes.name">
+                {{item.relationships.state.data.attributes.name}}
+              </v-btn>
+            </v-list-tile-action>
           </v-list-tile>
           <v-divider v-if="index + 1 < tasks.data.length" :key="`divider-${index}`"></v-divider>
         </template>
