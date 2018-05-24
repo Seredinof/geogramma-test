@@ -36,7 +36,8 @@ export default {
     data(){
         return {
             login: null,
-            pass: null
+            pass: null,
+            user: this.$store.state.user
         }
     },
     computed: {
@@ -44,7 +45,15 @@ export default {
             return !(this.login && this.pass)
         },
         error: function() {
-            return this.$store.state.user.errorLogin
+            return this.user.errorLogin
+        }
+    },
+    watch: {
+        'user.attributes': function (a) {
+            if(a.token) {
+                localStorage.token = a.token;
+                this.$router.push('/');
+            }
         }
     },
     methods: {
@@ -54,6 +63,9 @@ export default {
                 pass: this.pass
             });
         }
+    },
+    mounted() {
+        console.log(this.user);
     }
 }
 </script>

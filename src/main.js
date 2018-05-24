@@ -23,5 +23,14 @@ new Vue({
   el: '#app',
   store,
   router,
+  mounted() {
+      if(localStorage.token) {
+        this.$store.dispatch('getUser', localStorage.token)
+      } else {
+        router.push('login');
+      }
+  },
   render: h => h(App)
 })
+
+

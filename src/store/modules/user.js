@@ -4,8 +4,8 @@ export default {
     state: {
         type: 'user',
         id: null,
-        attributes: {},
-        relationships: {},
+        attributes: null,
+        relationships: null,
         errorLogin: ''
     },
     mutations: {
@@ -27,6 +27,11 @@ export default {
             }).catch(function (error) {
                 context.commit('setErrorLogin', 'Пара логин/пароль не подходят');
             })
+        },
+        getUser(context, payload) {
+            api.getUser(payload).then( function( response ) {
+                context.commit('setUser', response.data.data);
+            } )
         }
     }
 }

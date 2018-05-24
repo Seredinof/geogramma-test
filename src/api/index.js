@@ -19,5 +19,15 @@ export default {
         };
 
         return axios(options);
+    },
+
+    getUser: function(token) {
+        const options = {
+            url: `${apiRoot}user/?token=${token}`,
+            method: 'GET',
+            headers: { 'auth_token': token }
+        };
+
+        return axios(options);
     }
 }
