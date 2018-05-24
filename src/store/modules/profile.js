@@ -7,6 +7,9 @@ export default {
     mutations: {
         setProfile (state, payload) {
             state.data = payload;
+        },
+        loginUpdate (state, payload) {
+            state.data.attributes.login = payload;
         }
     },
     actions: {

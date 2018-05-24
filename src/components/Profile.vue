@@ -11,9 +11,14 @@
         </v-avatar>
         <div>
           <div class="headline">{{profile.data.attributes.fullName}}</div>
-          <div>{{profile.data.attributes.login}}</div>
+          <div v-if="!profileUser">{{profile.data.attributes.login}}</div>
+          <v-text-field
+            v-if="profileUser"
+            label="Логин"
+            v-model="username"
+          ></v-text-field>
           <div><b>Задач:</b> {{profile.data.attributes.tasks}}</div>
-          <div v-if="profile.data.id == user.id"><b>Token:</b> {{profile.data.attributes.token}}</div>
+          <div v-if="profileUser"><b>Token:</b> {{profile.data.attributes.token}}</div>
         </div>
       </v-layout>
     </v-container>
@@ -30,8 +35,18 @@ export default {
       user: this.$store.state.user
     }
   },
-  created() {
-
+  computed: {
+    username: {
+      get () {
+        return this.$store.state.profile.data.attributes.login
+      },
+      set (value) {
+        this.$store.commit('loginUpdate', value)
+      }
+    },
+    profileUser: function() {
+      return this.profile.data.id == this.user.id
+    }
   },
   mounted() {
     this.$store.dispatch('getProfile', this.$route.params.id);
