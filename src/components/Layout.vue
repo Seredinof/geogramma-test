@@ -29,13 +29,8 @@
       <v-toolbar-title>Application</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout
-          justify-center
-          align-center
-        >
-          
-        </v-layout>
+      <v-container fluid>
+          <router-view></router-view>
       </v-container>
     </v-content>
     <v-footer color="indigo" app>

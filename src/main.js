@@ -6,6 +6,7 @@ import store from './store'
 import 'vuetify/dist/vuetify.min.css'
 import Login from './components/Login'
 import Layout from './components/Layout'
+import Tasks from './components/Tasks'
 
 Vue.use(Vuetify);
 Vue.use(VueRouter);
@@ -14,7 +15,14 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: Layout },
+    { path: '/', component: Layout,
+      children: [
+        {
+          path: 'tasks',
+          component: Tasks
+        }
+      ]
+    },
     { path: '/login', component: Login }
   ]
 })

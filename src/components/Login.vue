@@ -52,7 +52,7 @@ export default {
         'user.attributes': function (a) {
             if(a.token) {
                 localStorage.token = a.token;
-                this.$router.push('/');
+                this.$router.push('tasks');
             }
         }
     },
@@ -65,7 +65,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.user);
+        
     }
 }
 </script>

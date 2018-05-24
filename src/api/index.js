@@ -29,5 +29,14 @@ export default {
         };
 
         return axios(options);
+    },
+    getTasks: function() {
+        const options = {
+            url: `${apiRoot}tasks/`,
+            method: 'GET',
+            headers: { 'auth_token': (localStorage.token) ? localStorage.token : '' }
+        };
+
+        return axios(options);
     }
 }
