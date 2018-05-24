@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import user from './modules/user'
 import tasks from './modules/tasks'
 import task from './modules/task'
+import profile from './modules/profile'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
   modules: {
     user,
     tasks,
-    task
+    task,
+    profile
   },
   strict: debug
 })

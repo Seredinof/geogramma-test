@@ -47,5 +47,14 @@ export default {
         };
 
         return axios(options);
+    },
+    getProfile: function(id) {
+        const options = {
+            url: `${apiRoot}user/${id}`,
+            method: 'GET',
+            headers: { 'auth_token': (localStorage.token) ? localStorage.token : '' }
+        };
+
+        return axios(options);
     }
 }

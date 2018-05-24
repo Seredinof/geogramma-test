@@ -7,7 +7,7 @@
     >
       <v-toolbar flat class="transparent" v-if="user.attributes">
         <v-list class="pa-0">
-          <v-list-tile avatar>
+          <v-list-tile avatar :to="`/profile/${user.id}`">
             <v-list-tile-avatar>
               <img :src="`http://geogramma-test.byllmcsony.ru/${user.relationships.data.attributes.path}`" >
             </v-list-tile-avatar>

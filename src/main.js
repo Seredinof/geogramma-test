@@ -8,6 +8,7 @@ import Login from './components/Login'
 import Layout from './components/Layout'
 import Tasks from './components/Tasks'
 import Task from './components/Task'
+import Profile from './components/Profile'
 
 Vue.use(Vuetify);
 Vue.use(VueRouter);
@@ -25,6 +26,10 @@ const router = new VueRouter({
         {
           path: '/task/:id',
           component: Task
+        },
+        {
+          path: '/profile/:id',
+          component: Profile
         }
       ]
     },
